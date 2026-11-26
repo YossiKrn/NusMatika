@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.application'
+}
+
+def appVersion = new Properties()
+rootProject.file('version.properties').withInputStream { appVersion.load(it) }
+def localSigning = new Properties()
+def signingFile = rootProject.file('signing.properties')
+if (signingFile.exists()) signingFile.withInputStream { localSigning.load(it) }
+def hasLocalSigning = ['storeFile', 'storePassword', 'keyAlias', 'keyPassword'].every {
+    localSigning.getProperty(it)?.trim()
+}
+if (hasLocalSigning && !rootProject.file(localSigning.storeFile).isFile()) {
+    throw new GradleException('Signing key not found. Run nusmatika.ps1 -Action Setup or restore your original key.')
+}
+
+android {
+    // Keep this identity unchanged for every update, including debug and release.
+    namespace 'id.nusmatika.dakon'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'id.nusmatika.dakon'
+        minSdk 26
+        targetSdk 35
+        versionCode appVersion.versionCode.toInteger()
+        versionName appVersion.versionName
+    }
+    signingConfigs {
+        if (hasLocalSigning) {
+            stable {
+                storeFile rootProject.file(localSigning.storeFile)
+                storePassword localSigning.storePassword
+                keyAlias localSigning.keyAlias
+                keyPassword localSigning.keyPassword
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            if (hasLocalSigning) signingConfig signingConfigs.stable
+        }
+        release {
+            if (hasLocalSigning) signingConfig signingConfigs.stable
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+gradle.taskGraph.whenReady { graph ->
+    if (!hasLocalSigning && graph.allTasks.any {
+            it.project == project && it.name in ['assembleRelease', 'bundleRelease', 'packageRelease'] }) {
+        throw new GradleException('Release needs a persistent signing key. Run nusmatika.ps1 -Action Setup first.')
+    }
+}

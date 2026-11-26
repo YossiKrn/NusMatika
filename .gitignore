@@ -1,0 +1,22 @@
+# Generated output and local machine configuration
+.gradle/
+**/build/
+.idea/
+.vscode/
+*.iml
+local.properties
+gradle-cache/
+outputs/
+# Signing material stays on the owner's computer
+signing.properties
+keystore.properties
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+# Distribution files are shared using GitHub Releases
+*.apk
+*.aab
+*.zip

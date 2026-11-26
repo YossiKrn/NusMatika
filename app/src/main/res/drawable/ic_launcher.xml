@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Original Dakon board mark: a chunky amber tile and one blue seed. -->
+    <path android:fillColor="#008B84"
+        android:pathData="M0,0H108V108H0Z" />
+    <path android:fillColor="#006B66"
+        android:pathData="M24,44H84Q96,44 96,56V69Q96,82 83,82H25Q12,82 12,69V56Q12,44 24,44Z" />
+    <path android:fillColor="#CE7C15"
+        android:pathData="M24,39H84Q96,39 96,51V64Q96,77 83,77H25Q12,77 12,64V51Q12,39 24,39Z" />
+    <path android:fillColor="#FFC449"
+        android:pathData="M24,32H84Q96,32 96,45V54Q96,67 83,67H25Q12,67 12,54V45Q12,32 24,32Z" />
+    <path android:fillColor="#FFE28C"
+        android:pathData="M24,32H84Q94,32 96,43Q90,37 81,37H27Q18,37 12,43Q14,32 24,32Z" />
+    <path android:fillColor="#A95E16"
+        android:pathData="M38,49A9,11 0,1 1,20 49A9,11 0,1 1,38 49M63,49A9,11 0,1 1,45 49A9,11 0,1 1,63 49M88,49A9,11 0,1 1,70 49A9,11 0,1 1,88 49" />
+    <path android:fillColor="#CB7C22"
+        android:pathData="M22,54Q29,61 36,54Q35,59 29,60Q23,59 22,54M47,54Q54,61 61,54Q60,59 54,60Q48,59 47,54M72,54Q79,61 86,54Q85,59 79,60Q73,59 72,54" />
+    <path android:fillColor="#0848C5"
+        android:pathData="M28,39C36,35 42,41 40,47C39,53 31,56 27,51C24,47 23,42 28,39Z" />
+    <path android:fillColor="#3F7EF8"
+        android:pathData="M28,38C34,35 40,39 40,44C36,42 30,45 27,49C24,45 24,41 28,38Z" />
+    <path android:fillColor="#9DBFFF"
+        android:pathData="M29,40C31,39 34,39 35,40C36,42 30,44 29,43C28,42 28,41 29,40Z" />
+</vector>

@@ -1,0 +1,86 @@
+{
+  "source": "work/dakon-motion/nara-rig-v3.mjs",
+  "sourceSha256": "7bba3b858a27b27e2ea42d4773e48b97cabd73a780e255b8708c7b8980f787e8",
+  "viewBox": [
+    0,
+    0,
+    320,
+    360
+  ],
+  "durationMillis": 20000,
+  "framesPerSecond": 12,
+  "frameCount": 240,
+  "frameWidth": 160,
+  "frameHeight": 180,
+  "columns": 6,
+  "rows": 4,
+  "sheetWidth": 960,
+  "sheetHeight": 720,
+  "framesPerSheet": 24,
+  "encoding": "lossless WebP RGBA",
+  "transparent": true,
+  "sampling": "frame i at i/12 seconds; frame floor((elapsedMillis % 20000)*12/1000)",
+  "reducedMotionFrame": 0,
+  "sheets": [
+    {
+      "file": "nara-00.webp",
+      "firstFrame": 0,
+      "frameCount": 24,
+      "bytes": 84592
+    },
+    {
+      "file": "nara-01.webp",
+      "firstFrame": 24,
+      "frameCount": 24,
+      "bytes": 95692
+    },
+    {
+      "file": "nara-02.webp",
+      "firstFrame": 48,
+      "frameCount": 24,
+      "bytes": 117606
+    },
+    {
+      "file": "nara-03.webp",
+      "firstFrame": 72,
+      "frameCount": 24,
+      "bytes": 100220
+    },
+    {
+      "file": "nara-04.webp",
+      "firstFrame": 96,
+      "frameCount": 24,
+      "bytes": 127856
+    },
+    {
+      "file": "nara-05.webp",
+      "firstFrame": 120,
+      "frameCount": 24,
+      "bytes": 126512
+    },
+    {
+      "file": "nara-06.webp",
+      "firstFrame": 144,
+      "frameCount": 24,
+      "bytes": 127732
+    },
+    {
+      "file": "nara-07.webp",
+      "firstFrame": 168,
+      "frameCount": 24,
+      "bytes": 129678
+    },
+    {
+      "file": "nara-08.webp",
+      "firstFrame": 192,
+      "frameCount": 24,
+      "bytes": 115414
+    },
+    {
+      "file": "nara-09.webp",
+      "firstFrame": 216,
+      "frameCount": 24,
+      "bytes": 84554
+    }
+  ]
+}

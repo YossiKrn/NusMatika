@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="balap_canvas" type="id" />
+    <item name="learning_path_scroll" type="id" />
+    <item name="learning_path_back" type="id" />
+</resources>

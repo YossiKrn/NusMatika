@@ -1,0 +1,6 @@
+# Copy to signing.properties only if you configure a key manually.
+# Never commit signing.properties or the private keystore.
+storeFile=C:/Users/YOUR_USER/.nusmatika/signing/nusmatika.keystore
+storePassword=YOUR_LOCAL_PASSWORD
+keyAlias=YOUR_KEY_ALIAS
+keyPassword=YOUR_LOCAL_PASSWORD

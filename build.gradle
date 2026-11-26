@@ -1,0 +1,38 @@
+plugins {
+    id 'java-base'
+    id 'com.android.application' version '8.9.2' apply false
+}
+
+// The existing executable JVM tests live outside Android's JUnit source set.
+def pureModels = ['DakonSession', 'BoardGeometry', 'WorksheetState', 'WorksheetLayout',
+        'BalapKarungSession', 'BalapLearningProgress', 'JkwTutorialMotion', 'WelcomeMotion',
+        'DakonLearningSession', 'PetakUmpetCatalog', 'PetakUmpetSession', 'PetakUmpetProgress',
+        'PetakUmpetAssemblyModel', 'EngklekNet', 'EngklekCatalog', 'EngklekSession']
+def logicClasses = layout.buildDirectory.dir('logic-tests')
+tasks.register('compileLogicTests', JavaCompile) {
+    source = files(pureModels.collect { "app/src/main/java/id/nusmatika/dakon/${it}.java" }) + fileTree('tests') { include '**/*.java' }
+    classpath = files()
+    destinationDirectory = logicClasses
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+    options.compilerArgs.addAll(['-Xlint:all,-options', '-Werror'])
+}
+def testPrograms = ['DakonSessionTest', 'BoardGeometryTest', 'WorksheetStateTest',
+        'BalapKarungSessionTest', 'JkwTutorialTest', 'JkwGuidedLessonTest',
+        'JkwTutorialMotionTest', 'WelcomeMotionTest', 'DakonLearningSessionTest', 'PetakUmpetSessionTest',
+        'AssemblyModelTest', 'EngklekTest']
+def logicTasks = testPrograms.collect { program ->
+    tasks.register("run${program}", JavaExec) {
+        dependsOn 'compileLogicTests'
+        classpath = files(logicClasses)
+        mainClass = "id.nusmatika.dakon.${program}"
+        enableAssertions = true
+    }
+}
+tasks.register('testLogic') {
+    group = 'verification'
+    description = 'Run all dependency-free lesson, geometry and progress tests.'
+    dependsOn logicTasks
+}
+tasks.named('check') { dependsOn 'testLogic' }
